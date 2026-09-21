@@ -59,17 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="data-card">
-          <strong>Per-Capita Income</strong>
-          <span>$${Number(values[4]).toLocaleString()}</span>
+          <strong>White Population</strong>
+          <span>${Number(values[4]).toLocaleString()}</span>
         </div>
 
         <div class="data-card">
-          <strong>Population Below Poverty Level</strong>
+          <strong>Black or African American Population</strong>
           <span>${Number(values[5]).toLocaleString()}</span>
         </div>
 
         <div class="data-card">
-          <strong>Housing Units</strong>
+          <strong>Asian Population</strong>
           <span>${Number(values[6]).toLocaleString()}</span>
         </div>
       `;
