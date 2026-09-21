@@ -24,25 +24,24 @@ exports.handler = async function (event) {
         };
     }
 
-  // Build Census API request
-    const censusUrl =
-        `https://api.census.gov/data/2024/acs/acs5` +
-        `?get=NAME,B01003_001E,B01002_001E,B19013_001E,B17001_002E,B02003_003E,B02003_004E,B02003_006E` +
-        `&for=zip%20code%20tabulation%20area:${zipCode}` +
-        `&key=${apiKey}`;
+    const params = new URLSearchParams({
+        get: 'NAME,B01003_001E,B01002_001E,B19013_001E,B17001_002E,B02003_003E,B02003_004E,B02003_006E',
+        'for': `zip code tabulation area:${zipCode}`,
+        key: apiKey
+    });
+
+    const censusUrl = `https://api.census.gov/data/2024/acs/acs5?${params.toString()}`;
 
     try {
-
         const response = await fetch(censusUrl);
-
-        const data = await response.json();
+        const textData = await response.text();
 
         if (!response.ok) {
             return {
                 statusCode: response.status,
                 body: JSON.stringify({
                     error: "Census API request failed.",
-                    details: data
+                    details: textData
                 })
             };
         }
@@ -52,15 +51,15 @@ exports.handler = async function (event) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: textData
         };
 
     } catch (error) {
-
         return {
             statusCode: 500,
             body: JSON.stringify({
-                error: "Unable to connect to the Census API."
+                error: "Unable to connect to the Census API.",
+                message: error.message
             })
         };
     }
