@@ -24,10 +24,10 @@ exports.handler = async function (event) {
         };
     }
 
-    // Build Census API request
+   // Build Census API request
     const censusUrl =
         `https://api.census.gov/data/2024/acs/acs5` +
-        `?get=NAME,B01003_001E,B01002_001E,B19013_001E,B19301_001E,B17001_002E,B25001_001E` +
+        `?get=NAME,B01003_001E,B01002_001E,B19013_001E,B19301_001E,B17001_002E,B25001_001E,B02003_003E,B02003_004E,B02003_006E` +
         `&for=zip%20code%20tabulation%20area:${zipCode}` +
         `&key=${apiKey}`;
 
