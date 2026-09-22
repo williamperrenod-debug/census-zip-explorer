@@ -25,9 +25,9 @@ exports.handler = async function (event) {
     }
 
     // Build Census API request
-    const censusUrl =
+  const censusUrl =
     `https://api.census.gov/data/2024/acs/acs5` +
-    `?get=NAME,B01003_001E,B01002_001E,B19013_001E,B02001_002E,B02001_003E,B02001_005E` +
+    `?get=NAME,B01003_001E,B01002_001E,B19013_001E,B02001_002E,B02001_003E,B02001_005E,B03002_012E,B15003_021E` +
     `&for=zip%20code%20tabulation%20area:${zipCode}` +
     `&key=${apiKey}`;
 
