@@ -72,6 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <strong>Asian Population</strong>
           <span>${Number(values[6]).toLocaleString()}</span>
         </div>
+
+        <div class="data-card">
+          <strong>Hispanic or Latino Population</strong>
+          <span>${Number(values[7]).toLocaleString()}</span>
+        </div>
+
+        <div class="data-card">
+          <strong>Bachelor's Degree</strong>
+          <span>${Number(values[8]).toLocaleString()}</span>
+        </div>
       `;
 
     } catch (error) {
